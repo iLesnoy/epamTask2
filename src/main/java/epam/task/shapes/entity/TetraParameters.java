@@ -46,7 +46,7 @@ public class TetraParameters {
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
-        builder.append("ConeParameters{");
+        builder.append("TetraParameters{");
         builder.append("surfaceArea=").append(area);
         builder.append(", volume=").append(volume);
         builder.append("}");

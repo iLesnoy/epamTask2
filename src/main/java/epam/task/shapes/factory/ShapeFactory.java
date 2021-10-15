@@ -18,7 +18,7 @@ public class ShapeFactory {
             throw new CustomException("it is impossible to build a figure because" + edge +  " or height is " + height);
         }
         tetra = new Tetrahedron(point,edge,height);
-        logger.log(Level.ERROR, "Create cone " + tetra.toString());
+        logger.log(Level.ERROR, "Create tetra " + tetra.toString());
         return tetra;
     }
 
