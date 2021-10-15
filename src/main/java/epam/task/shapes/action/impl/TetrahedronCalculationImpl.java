@@ -24,26 +24,24 @@ public class TetrahedronCalculationImpl implements TetrahedronCalculation {
     @Override
     public double tetrahedronVolumeRatio(Tetrahedron tetra,Point point) throws CustomException {
         if (point.getZ() <= tetra.getCenter().getZ() || point.getZ() >= tetra.getCenter().getZ() + tetra.getHeight()) {
-            throw new CustomException("There are no sections from point " + point.toString());
+            throw new CustomException(" No sections from point " + point.toString());
         } else {
             double secondHeight = point.getZ() - tetra.getCenter().getZ();
             double firstHeight = tetra.getHeight() - secondHeight;
-            double firstRadius = firstHeight * tetra.getRadius() / tetra.getHeight();
-            double firstConeVolume = tetrahedronVolume(new Tetrahedron(tetra.getCenter(), firstRadius, firstHeight));
-            double secondConeVolume = tetrahedronVolume(tetra) - firstConeVolume;
-            /*logger.log(Level.INFO, "Volume ratio of cone " + cone.toString() + " and point " + point.toString() + ": " + coneVolumeRatio);*/
-            return firstConeVolume / secondConeVolume;
+            double firstEdge = firstHeight * tetra.getEdge() / tetra.getHeight();
+            double firstTetraVolume = tetrahedronVolume(new Tetrahedron(tetra.getCenter(), /*firstRadius,*/ firstHeight,firstEdge));
+            double secondConeVolume = tetrahedronVolume(tetra) - firstTetraVolume;
+            return firstTetraVolume / secondConeVolume;
         }
     }
 
     @Override
-    public boolean isTetrahedron( double radius, double height) {
-        return radius > 0 && height > 0;
+    public boolean isTetrahedron( double edge, double height) {
+        return edge > 0 && height > 0;
     }
 
     @Override
     public boolean isBaseOnPlane(Tetrahedron tetra) {
-        boolean isBaseOnPlane =  tetra.getCenter().getZ() == 0;
-        return isBaseOnPlane;
+        return tetra.getCenter().getZ() == 0;
     }
 }

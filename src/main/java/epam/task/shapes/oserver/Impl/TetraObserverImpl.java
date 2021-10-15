@@ -10,7 +10,7 @@ import epam.task.shapes.oserver.TetrahedronObserver;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class TetraObserImpl implements TetrahedronObserver {
+public class TetraObserverImpl implements TetrahedronObserver {
 
     private static Logger logger = LogManager.getLogger();
 

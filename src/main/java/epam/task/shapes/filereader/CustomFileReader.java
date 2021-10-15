@@ -16,9 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static epam.task.shapes.validator.ValueValidator.fileValidator;
-
-
 public class CustomFileReader {
 
 
@@ -31,6 +28,7 @@ public class CustomFileReader {
         try {
 
             list = Files.lines(path).filter(ValueValidator::fileValidator).collect(Collectors.toList());
+
         } catch (FileNotFoundException e) {
             logger.error(e.getMessage());
             throw new CustomException("File not found " + filepath,e);

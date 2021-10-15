@@ -1,7 +1,7 @@
 package epam.task.shapes.entity;
 
 import epam.task.shapes.exception.CustomException;
-import epam.task.shapes.oserver.Impl.TetraObserImpl;
+import epam.task.shapes.oserver.Impl.TetraObserverImpl;
 import epam.task.shapes.oserver.TetraEvent;
 import epam.task.shapes.oserver.TetraObservable;
 import epam.task.shapes.service.IdGenerator;
@@ -12,18 +12,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Tetrahedron implements TetraObservable<TetraObserImpl> {
+public class Tetrahedron implements TetraObservable<TetraObserverImpl> {
 
     private static Logger logger = LogManager.getLogger();
     private Point center;
     private double edge;
     private double height;
-    private double radius;
+    /*private double radius;*/
     private long id;
-    private List<TetraObserImpl> observers = new ArrayList<>();
+    private List<TetraObserverImpl> observers = new ArrayList<>();
 
-    public Tetrahedron(double edge, double height) {
-    }
 
     public long getId() {
         return id;
@@ -57,13 +55,13 @@ public class Tetrahedron implements TetraObservable<TetraObserImpl> {
         this.edge = edge;
     }
 
-    public double getRadius() {
+    /*public double getRadius() {
         return radius;
     }
 
     public void setRadius(double radius) {
         this.radius = radius;
-    }
+    }*/
 
     public Tetrahedron(Point center, double edge, double height) {
         this.center = center;
@@ -72,10 +70,6 @@ public class Tetrahedron implements TetraObservable<TetraObserImpl> {
         this.id = IdGenerator.idGenerate();
     }
 
-    public Tetrahedron(Point center, double height) {
-        this.center = center;
-        this.height = height;
-    }
 
 
     @Override
@@ -85,22 +79,22 @@ public class Tetrahedron implements TetraObservable<TetraObserImpl> {
         Tetrahedron that = (Tetrahedron) o;
         return Double.compare(that.edge, edge) == 0 &&
                 Double.compare(that.height, height) == 0 &&
-                Double.compare(that.radius, radius) == 0 &&
+                /*Double.compare(that.radius, radius) == 0 &&*/
                 id == that.id && Objects.equals(center, that.center);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, center, edge, height, radius);
+        return Objects.hash(id, center, edge, height/*, radius*/);
     }
 
     @Override
-    public void attach(TetraObserImpl observer) {
+    public void attach(TetraObserverImpl observer) {
         observers.add(observer);
     }
 
     @Override
-    public void detach(TetraObserImpl observer) {
+    public void detach(TetraObserverImpl observer) {
         observers.remove(observer);
     }
 
@@ -108,7 +102,7 @@ public class Tetrahedron implements TetraObservable<TetraObserImpl> {
     public void notifyObservers() throws CustomException {
         TetraEvent event = new TetraEvent(this);
         if (!observers.isEmpty()) {
-            for (TetraObserImpl observer : observers) {
+            for (TetraObserverImpl observer : observers) {
                 observer.updateArea(event);
                 observer.updateTetraVolume(event);
             }
@@ -121,7 +115,7 @@ public class Tetrahedron implements TetraObservable<TetraObserImpl> {
                 "center=" + center +
                 ", edge=" + edge +
                 ", height=" + height +
-                ", redius=" + radius +
+                /*", redius=" + radius +*/
                 ", id=" + id +
                 '}';
         return builder;

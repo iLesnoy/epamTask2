@@ -1,6 +1,5 @@
 package epam.task.shapes.oserver;
 
-import epam.task.shapes.entity.Tetrahedron;
 import epam.task.shapes.exception.CustomException;
 
 public interface TetrahedronObserver {

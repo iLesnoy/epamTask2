@@ -20,7 +20,7 @@ class TetrahedronCalculationImplTest {
         Point point = new Point(1,2,3);
         Tetrahedron tetrahedron = ShapeFactory.createTetra(1,2,3,4,5);
         double actualArea = calculation.tetrahedronArea(tetrahedron);
-        double expectedArea = 2.94;
+        double expectedArea = 27.712;
         assertEquals(actualArea,expectedArea,0.001);
 
     }
