@@ -30,8 +30,8 @@ public class Warehouse {
         return mapParameters.put(tetraId, tetraParameters);
     }
 
-    public TetraParameters remove(Long coneId) {
-        return mapParameters.remove(coneId);
+    public TetraParameters remove(Long tetraId) {
+        return mapParameters.remove(tetraId);
     }
 
     public TetraParameters get(Long tetraID) throws CustomException {
