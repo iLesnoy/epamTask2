@@ -2,11 +2,10 @@ package epam.task.shapes.entity;
 
 
 public class Point {
-
     private double x;
+
     private double y;
     private double z;
-
 
     public Point() {
     }
@@ -16,7 +15,8 @@ public class Point {
         this.y = y;
     }
 
-    public Point( double x, double y, double z) {
+    public Point(double x, double y, double z) {
+        this.x = x;
         this.y = y;
         this.z = z;
     }
@@ -69,10 +69,11 @@ public class Point {
 
     @Override
     public String toString() {
-        String builder = "Point{" +
-                x + ", " +
-                y + ", " +
-                z + "}";
-        return builder ;
+        StringBuilder builder = new StringBuilder();
+        builder.append("Point{");
+        builder.append(x).append(", ");
+        builder.append(y).append(", ");
+        builder.append(z).append("}");
+        return builder.toString();
     }
 }

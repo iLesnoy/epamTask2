@@ -9,7 +9,7 @@ public class TetraParameters {
         this.volume = volume;
     }
 
-    public double getSurfaceArea() {
+    public double getArea() {
         return area;
     }
 

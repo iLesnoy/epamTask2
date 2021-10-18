@@ -1,9 +1,9 @@
 package epam.task.shapes.entity;
 
 import epam.task.shapes.exception.CustomException;
-import epam.task.shapes.oserver.Impl.TetraObserverImpl;
-import epam.task.shapes.oserver.TetraEvent;
-import epam.task.shapes.oserver.TetraObservable;
+import epam.task.shapes.observer.Impl.TetraObserverImpl;
+import epam.task.shapes.observer.TetraEvent;
+import epam.task.shapes.observer.TetraObservable;
 import epam.task.shapes.service.IdGenerator;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -18,17 +18,27 @@ public class Tetrahedron implements TetraObservable<TetraObserverImpl> {
     private Point center;
     private double edge;
     private double height;
-    /*private double radius;*/
-    private long id;
+    private long tetraId;
+
+    public Tetrahedron() {
+    }
+
+    public Tetrahedron(Point center, double edge, double height) {
+        this.center = center;
+        this.edge = edge;
+        this.height = height;
+        this.tetraId = IdGenerator.idGenerate();
+    }
+
     private List<TetraObserverImpl> observers = new ArrayList<>();
 
 
-    public long getId() {
-        return id;
+    public long getTetraId() {
+        return tetraId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setTetraId(long tetraId) {
+        this.tetraId = tetraId;
     }
 
     public Point getCenter() {
@@ -43,33 +53,19 @@ public class Tetrahedron implements TetraObservable<TetraObserverImpl> {
         return edge;
     }
 
+    public void setEdge(double edge) throws CustomException {
+        this.edge = edge;
+        notifyObservers();
+    }
+
     public double getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public void setHeight(double height) throws CustomException {
         this.height = height;
+        notifyObservers();
     }
-
-    public void setEdge(double edge) {
-        this.edge = edge;
-    }
-
-    /*public double getRadius() {
-        return radius;
-    }
-
-    public void setRadius(double radius) {
-        this.radius = radius;
-    }*/
-
-    public Tetrahedron(Point center, double edge, double height) {
-        this.center = center;
-        this.edge = edge;
-        this.height = height;
-        this.id = IdGenerator.idGenerate();
-    }
-
 
 
     @Override
@@ -79,13 +75,17 @@ public class Tetrahedron implements TetraObservable<TetraObserverImpl> {
         Tetrahedron that = (Tetrahedron) o;
         return Double.compare(that.edge, edge) == 0 &&
                 Double.compare(that.height, height) == 0 &&
-                /*Double.compare(that.radius, radius) == 0 &&*/
-                id == that.id && Objects.equals(center, that.center);
+                tetraId == that.tetraId && Objects.equals(center, that.center);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, center, edge, height/*, radius*/);
+        int result = this.center.hashCode();
+        long longBits = Double.doubleToLongBits(this.edge);
+        result = 31 * result + (int) (longBits - (longBits >>> 32));
+        longBits = Double.doubleToLongBits(this.height);
+        result = 31 * result + (int) (longBits - (longBits >>> 32));
+        return result;
     }
 
     @Override
@@ -111,13 +111,13 @@ public class Tetrahedron implements TetraObservable<TetraObserverImpl> {
 
     @Override
     public String toString() {
-        String builder = "Tetrahedron{" +
-                "center=" + center +
-                ", edge=" + edge +
-                ", height=" + height +
-                /*", redius=" + radius +*/
-                ", id=" + id +
-                '}';
-        return builder;
+        StringBuilder builder = new StringBuilder();
+        builder.append("Tetrahedron{");
+        builder.append("center=").append(center);
+        builder.append(", edge=").append(edge);
+        builder.append(", height=").append(height);
+        builder.append(", tetraId=").append(tetraId);
+        builder.append('}');
+        return builder.toString();
     }
 }
