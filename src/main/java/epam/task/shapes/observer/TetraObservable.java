@@ -1,4 +1,4 @@
-package epam.task.shapes.oserver;
+package epam.task.shapes.observer;
 
 import epam.task.shapes.exception.CustomException;
 

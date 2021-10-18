@@ -34,11 +34,11 @@ public class Warehouse {
         return mapParameters.remove(tetraId);
     }
 
-    public TetraParameters get(Long tetraID) throws CustomException {
-        TetraParameters tetraParameters = mapParameters.get(tetraID);
+    public TetraParameters get(Long tetraId) throws CustomException {
+        TetraParameters tetraParameters = mapParameters.get(tetraId);
         if (tetraParameters == null) {
-            logger.log(Level.ERROR, " no such element by id " + tetraID);
-            throw new CustomException(" no such element by id " + tetraID);
+            logger.log(Level.ERROR, " no such element by id " + tetraId);
+            throw new CustomException(" no such element by id " + tetraId);
         }
         return tetraParameters;
     }

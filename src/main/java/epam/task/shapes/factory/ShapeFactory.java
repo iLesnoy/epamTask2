@@ -11,14 +11,8 @@ public class ShapeFactory {
 
     private static Logger logger = LogManager.getLogger();
 
-    public static Tetrahedron createTetra(Point point,double edge, double height) throws CustomException {
-        Tetrahedron tetra;
-        if ( height <= 0 || edge <=0) {
-            logger.log(Level.ERROR, "it is impossible to build a figure because because" + edge +  " or height is " + height);
-            throw new CustomException("it is impossible to build a figure because" + edge +  " or height is " + height);
-        }
-        tetra = new Tetrahedron(point,edge,height);
-        logger.log(Level.ERROR, "Create tetra " + tetra.toString());
+    public static Tetrahedron createTetra(Point point,double edge, double height)  {
+        Tetrahedron tetra = new Tetrahedron(point,edge,height);
         return tetra;
     }
 
@@ -26,7 +20,7 @@ public class ShapeFactory {
         return createTetra(new Point(x, y, z), edge, height);
     }
 
-    public static Tetrahedron createTetra(double[] parameters) throws CustomException {
+    public static Tetrahedron createTetra(double[] parameters) {
         Point points = new Point(parameters[0], parameters[1], parameters[2]);
         double edge = parameters[3];
         double height = parameters[4];
