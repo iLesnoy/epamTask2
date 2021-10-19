@@ -17,10 +17,10 @@ public class TetraObserverImpl implements TetrahedronObserver {
 
     @Override
     public void updateTetraVolume(TetraEvent event) {
-        Tetrahedron tetra = event.getSource();             /*извекли объект*/
-        long id = tetra.getTetraId();                         /*извекли ID объектa*/
-        Warehouse warehouse = Warehouse.getInstance();          /*получили доступ к warehouse*/
-        TetraParameters parameters = null;          /*извекли параметры по ID из warehouse*/
+        Tetrahedron tetra = event.getSource();            
+        long id = tetra.getTetraId();                        
+        Warehouse warehouse = Warehouse.getInstance();          
+        TetraParameters parameters = null;          
         try {
             parameters = warehouse.get(id);
         } catch (CustomException e) {
