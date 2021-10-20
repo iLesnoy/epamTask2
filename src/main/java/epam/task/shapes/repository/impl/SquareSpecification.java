@@ -3,7 +3,7 @@ package epam.task.shapes.repository.impl;
 import epam.task.shapes.entity.Tetrahedron;
 import epam.task.shapes.repository.Specification;
 
-public class SquareSpeciсation implements Specification {
+public class SquareSpecification implements Specification {
 
     @Override
     public boolean specify(Tetrahedron tetra) {

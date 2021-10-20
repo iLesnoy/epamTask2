@@ -18,7 +18,7 @@ public class CustomWarehouseService {
         long id = tetra.getTetraId();
         TetrahedronCalculationImpl calculationService = new TetrahedronCalculationImpl ();
         double tetraArea = calculationService.tetrahedronArea(tetra);
-        double volume = calculationService.tetrahedronArea(tetra);
+        double volume = calculationService.tetrahedronVolume(tetra);
         TetraParameters parameters = new TetraParameters(tetraArea, volume);
         Warehouse warehouse = Warehouse.getInstance();
         warehouse.put(id, parameters);

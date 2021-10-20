@@ -1,4 +1,4 @@
-package epam.task.shapes.observer.Impl;
+package epam.task.shapes.observer.impl;
 
 import epam.task.shapes.action.impl.TetrahedronCalculationImpl;
 import epam.task.shapes.entity.TetraParameters;
@@ -44,6 +44,6 @@ public class TetraObserverImpl implements TetrahedronObserver {
         }
         TetrahedronCalculationImpl calculation = new TetrahedronCalculationImpl();
         double volume = calculation.tetrahedronArea(tetra);
-        parameters.setSurfaceArea(volume);
+        parameters.setArea(volume);
     }
 }

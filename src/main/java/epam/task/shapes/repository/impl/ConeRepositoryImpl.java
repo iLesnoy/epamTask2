@@ -9,19 +9,19 @@ import org.apache.logging.log4j.Logger;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class ConeRepositoryimpl implements TetraRepository {
+public class ConeRepositoryImpl implements TetraRepository {
 
     private static Logger logger = LogManager.getLogger();
-    private static ConeRepositoryimpl instance;
+    private static ConeRepositoryImpl instance;
     private List<Tetrahedron> tetraList;
 
-    public ConeRepositoryimpl() {
+    public ConeRepositoryImpl() {
         tetraList = new ArrayList<>();
     }
 
-    public static ConeRepositoryimpl getInstance() {
+    public static ConeRepositoryImpl getInstance() {
         if (instance == null) {
-            instance = new ConeRepositoryimpl();
+            instance = new ConeRepositoryImpl();
         }
         return instance;
     }

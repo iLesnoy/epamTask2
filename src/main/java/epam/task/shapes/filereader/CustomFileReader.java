@@ -22,7 +22,7 @@ public class CustomFileReader {
     private final static Logger logger = LogManager.getLogger();
 
 
-    public static List<String> readAllFile(String filepath) throws CustomException {
+    public static List<String> readValues(String filepath) throws CustomException {
         List<String> list;
         Path path = Paths.get(filepath);
         try {

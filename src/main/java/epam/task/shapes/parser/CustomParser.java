@@ -9,6 +9,7 @@ public class CustomParser {
 
         String[] numberArr = str.split(SPACE);
         double[] numbers = new double[numberArr.length];
+
         for (int i = 0; i < numberArr.length; i++) {
             numbers[i] = Double.parseDouble(numberArr[i]);
         }

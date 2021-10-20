@@ -13,8 +13,8 @@ public class TetraParameters {
         return area;
     }
 
-    public void setSurfaceArea(double surfaceArea) {
-        this.area = surfaceArea;
+    public void setArea(double area) {
+        this.area = area;
     }
 
     public double getVolume() {
@@ -47,7 +47,7 @@ public class TetraParameters {
     public String toString() {
         StringBuilder builder = new StringBuilder();
         builder.append("TetraParameters{");
-        builder.append("surfaceArea=").append(area);
+        builder.append("Area=").append(area);
         builder.append(", volume=").append(volume);
         builder.append("}");
         return builder.toString();

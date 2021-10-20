@@ -1,7 +1,7 @@
 package epam.task.shapes.entity;
 
 import epam.task.shapes.exception.CustomException;
-import epam.task.shapes.observer.Impl.TetraObserverImpl;
+import epam.task.shapes.observer.impl.TetraObserverImpl;
 import epam.task.shapes.observer.TetraEvent;
 import epam.task.shapes.observer.TetraObservable;
 import epam.task.shapes.service.IdGenerator;
