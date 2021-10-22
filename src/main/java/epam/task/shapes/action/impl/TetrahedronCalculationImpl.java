@@ -5,23 +5,19 @@ import epam.task.shapes.entity.Point;
 import epam.task.shapes.entity.Tetrahedron;
 import epam.task.shapes.exception.CustomException;
 
-import java.text.DecimalFormat;
-
 
 public class TetrahedronCalculationImpl implements TetrahedronCalculation {
 
     @Override
     public double tetrahedronArea(Tetrahedron tetra) {
         double scale = Math.pow(10, 2);
-        double tetrahedronArea = Math.round(scale * Math.sqrt(3)* Math.pow(tetra.getEdge(),2))/scale;
-        return tetrahedronArea;
+        return Math.round(scale * Math.sqrt(3)* Math.pow(tetra.getEdge(),2))/scale;
     }
 
     @Override
     public double tetrahedronVolume(Tetrahedron tetra) {
         double scale = Math.pow(10, 2);
-        double tetrahedronArea = Math.sqrt(3)* Math.pow(tetra.getEdge(),2);
-        return Math.round(scale * 1/3 * tetrahedronArea * tetra.getHeight())/scale;
+        return Math.round(scale * (Math.pow(tetra.getEdge(),3)*Math.sqrt(2))/12)/scale;
     }
 
     @Override

@@ -39,21 +39,18 @@ public class Tetrahedron implements TetraObservable<TetraObserverImpl> {
 
     public void setTetraId(long tetraId) {
         this.tetraId = tetraId;
+        notifyObservers();
     }
 
     public Point getCenter() {
         return center;
     }
 
-    public void setCenter(Point center) {
-        this.center = center;
-    }
-
     public double getEdge() {
         return edge;
     }
 
-    public void setEdge(double edge) throws CustomException {
+    public void setEdge(double edge){
         this.edge = edge;
         notifyObservers();
     }
@@ -62,7 +59,7 @@ public class Tetrahedron implements TetraObservable<TetraObserverImpl> {
         return height;
     }
 
-    public void setHeight(double height) throws CustomException {
+    public void setHeight(double height){
         this.height = height;
         notifyObservers();
     }
@@ -99,7 +96,7 @@ public class Tetrahedron implements TetraObservable<TetraObserverImpl> {
     }
 
     @Override
-    public void notifyObservers() throws CustomException {
+    public void notifyObservers() {
         TetraEvent event = new TetraEvent(this);
         if (!observers.isEmpty()) {
             for (TetraObserverImpl observer : observers) {
