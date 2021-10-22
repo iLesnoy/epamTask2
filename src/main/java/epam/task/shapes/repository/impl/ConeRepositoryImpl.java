@@ -50,8 +50,8 @@ public class ConeRepositoryImpl implements TetraRepository {
     }
 
     @Override
-    public boolean removeTetrahedron(Tetrahedron tetra) {
-        return tetraList.remove(tetra);
+    public void removeTetrahedron(Tetrahedron tetra) {
+         tetraList.remove(tetra);
     }
 
     @Override

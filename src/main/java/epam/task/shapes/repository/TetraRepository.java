@@ -12,7 +12,7 @@ public interface TetraRepository {
 
     void addAllTetrahedrons(Collection<Tetrahedron> tetra);
 
-    boolean removeTetrahedron(Tetrahedron tetra);
+    void removeTetrahedron(Tetrahedron tetra);
 
     boolean removeAllTetrahedrons(Collection<Tetrahedron> tetra);
 
