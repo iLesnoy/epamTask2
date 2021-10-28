@@ -32,3 +32,10 @@
 [INFO ] 2021-10-28 22:09:47.501 [main] CustomWarehouseService - add cone Tetrahedron{center=Point{1.0, 2.0, 3.0}, edge=4.0, height=5.0, tetraId=2} to warehouse
 [INFO ] 2021-10-28 22:09:47.502 [main] CustomRepositoryService - add cone Tetrahedron{center=Point{1.0, 2.0, 3.0}, edge=4.0, height=5.0, tetraId=2} to repository
 [INFO ] 2021-10-28 22:29:24.059 [main] CustomWarehouseService - add cone Tetrahedron{center=Point{1.0, 2.0, 3.0}, edge=4.0, height=5.0, tetraId=1} to warehouse
+[INFO ] 2021-10-28 22:43:58.273 [main] CustomWarehouseService - add cone Tetrahedron{center=Point{-4.0, 8.0, 5.0}, edge=1.4, height=1.6, tetraId=1} to warehouse
+[INFO ] 2021-10-28 22:43:58.277 [main] CustomRepositoryService - add cone Tetrahedron{center=Point{-4.0, 8.0, 5.0}, edge=1.4, height=1.6, tetraId=1} to repository
+[INFO ] 2021-10-28 22:43:58.278 [main] CustomWarehouseService - add cone Tetrahedron{center=Point{1.0, 2.0, 3.0}, edge=4.0, height=10.0, tetraId=2} to warehouse
+[INFO ] 2021-10-28 22:43:58.278 [main] CustomRepositoryService - add cone Tetrahedron{center=Point{1.0, 2.0, 3.0}, edge=4.0, height=10.0, tetraId=2} to repository
+[INFO ] 2021-10-28 22:43:58.278 [main] CustomWarehouseService - add cone Tetrahedron{center=Point{-2.0, 4.0, 4.0}, edge=3.4, height=5.6, tetraId=3} to warehouse
+[INFO ] 2021-10-28 22:43:58.279 [main] CustomRepositoryService - add cone Tetrahedron{center=Point{-2.0, 4.0, 4.0}, edge=3.4, height=5.6, tetraId=3} to repository
+[INFO ] 2021-10-28 22:43:58.279 [main] CustomWarehouseService - add cone Tetrahedron{center=Point{-2.0, 4.0, 4.0}, edge=3.4, height=5.6, tetraId=4} to warehouse
