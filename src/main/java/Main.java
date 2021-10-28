@@ -17,20 +17,24 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) throws  CustomException {
+        /*Logger logger = LogManager.getLogger();
+        logger.info("privet");
+        logger.error("fregefrerthrt");*/
 
         CustomRepositoryService repositoryService = new CustomRepositoryService();
         CustomWarehouseService warehouseService = new CustomWarehouseService();
         List<String> str = CustomFileReader.readValues("resources/file.txt");
         String string = String.join(" ",str);
         double [] arr = CustomParser.stringParse(string);
-        /*warehouseService.fillConeWarehouse(arr);*/
         Point point = new Point(-2,4,4);
+
 
         repositoryService.fillConeRepository(arr);
         repositoryService.fillConeRepository(1,2,3,4,2);
         repositoryService.fillConeRepository(1,2,3,8,2);
         repositoryService.fillConeRepository(point,3.4,5.6);
         warehouseService.fillConeWarehouse(point,3.4,5.6);
+
 
         Warehouse warehouse = Warehouse.getInstance();
         ConeRepositoryImpl repositoryimpl = ConeRepositoryImpl.getInstance();
@@ -42,13 +46,15 @@ public class Main {
         TetraObserverImpl observer = new TetraObserverImpl();
         repositoryimpl.get(0).attach(observer);
         repositoryimpl.get(0).setEdge(5);
+        repositoryimpl.get(1).setEdge(3);
         repositoryimpl.get(1).attach(observer);
         repositoryimpl.get(1).setHeight(3);
 
-        System.out.println(warehouse.get(1L));
-        System.out.println(warehouse.get(2L));
-        System.out.println(warehouse.get(3L));
-        System.out.println(warehouse.get(4L));
+
+        System.out.println(warehouse.getById(1L));
+        System.out.println(warehouse.getById(2L));
+        System.out.println(warehouse.getById(3L));
+        System.out.println(warehouse.getById(4L));
 
         System.out.println(repositoryimpl.sort(new TetraHeightComparator()));
         System.out.println(repositoryimpl.query(new IdSpecification(1)));

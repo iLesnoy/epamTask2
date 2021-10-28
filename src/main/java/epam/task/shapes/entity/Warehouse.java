@@ -15,7 +15,7 @@ public class Warehouse {
     private Map<Long, TetraParameters> mapParameters;
 
 
-    private Warehouse() {
+    public Warehouse() {
         this.mapParameters = new HashMap<>();
     }
 
@@ -26,15 +26,19 @@ public class Warehouse {
         return instance;
     }
 
-    public TetraParameters put(Long tetraId, TetraParameters tetraParameters) {
+    public TetraParameters putById(Long tetraId, TetraParameters tetraParameters) {
         return mapParameters.put(tetraId, tetraParameters);
     }
 
-    public TetraParameters remove(Long tetraId) {
+    public int warehouseSize() {
+        return mapParameters.size();
+    }
+
+    public TetraParameters removeById(Long tetraId) {
         return mapParameters.remove(tetraId);
     }
 
-    public TetraParameters get(Long tetraId) throws CustomException {
+    public TetraParameters getById(Long tetraId) throws CustomException {
         TetraParameters tetraParameters = mapParameters.get(tetraId);
         if (tetraParameters == null) {
             logger.log(Level.ERROR, " no such element by id " + tetraId);
@@ -42,4 +46,5 @@ public class Warehouse {
         }
         return tetraParameters;
     }
+
 }

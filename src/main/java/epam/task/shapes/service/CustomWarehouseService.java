@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class CustomWarehouseService {
+
     private static Logger logger = LogManager.getLogger();
 
     public void fillConeWarehouse(Tetrahedron tetra) {
@@ -21,21 +22,21 @@ public class CustomWarehouseService {
         double volume = calculationService.tetrahedronVolume(tetra);
         TetraParameters parameters = new TetraParameters(tetraArea, volume);
         Warehouse warehouse = Warehouse.getInstance();
-        warehouse.put(id, parameters);
+        warehouse.putById(id, parameters);
         logger.log(Level.INFO, "add cone " + tetra + " to warehouse");
     }
 
-    public void fillConeWarehouse(Point center, double edge, double height) throws CustomException {
+    public void fillConeWarehouse(Point center, double edge, double height){
         Tetrahedron tetra = ShapeFactory.createTetra(center, edge, height);
         fillConeWarehouse(tetra);
     }
 
-    public void fillConeWarehouse(double x, double y, double z, double edge, double height) throws CustomException {
+    public void fillConeWarehouse(double x, double y, double z, double edge, double height){
         Tetrahedron tetra = ShapeFactory.createTetra(x, y, z, edge, height);
         fillConeWarehouse(tetra);
     }
 
-    public void fillConeWarehouse(double[] array) throws CustomException {
+    public void fillConeWarehouse(double[] array){
         Tetrahedron tetra = ShapeFactory.createTetra(array);
         fillConeWarehouse(tetra);
     }

@@ -13,7 +13,7 @@ public class CustomRepositoryService {
 
     private static Logger logger = LogManager.getLogger();
 
-    public void fillConeRepository(Point center, double edge, double height) {
+    public void fillConeRepository(Point center, double edge, double height){
         Tetrahedron tetra = ShapeFactory.createTetra(center, edge, height);
         ConeRepositoryImpl repository = ConeRepositoryImpl.getInstance();
         repository.addTetrahedron(tetra);
@@ -22,7 +22,7 @@ public class CustomRepositoryService {
         logger.log(Level.INFO, "add cone " + tetra + " to repository");
     }
 
-    public void fillConeRepository(double x, double y, double z, double edge, double height) throws  CustomException {
+    public void fillConeRepository(double x, double y, double z, double edge, double height){
         Tetrahedron tetra = ShapeFactory.createTetra(x, y, z, edge, height);
         ConeRepositoryImpl repository = ConeRepositoryImpl.getInstance();
         repository.addTetrahedron(tetra);

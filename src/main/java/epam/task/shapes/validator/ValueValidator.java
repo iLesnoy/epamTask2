@@ -1,5 +1,7 @@
 package epam.task.shapes.validator;
 
+import epam.task.shapes.entity.Point;
+
 import java.util.regex.Pattern;
 
 public class ValueValidator {
@@ -12,4 +14,5 @@ public class ValueValidator {
         var mather = pattern.matcher(str);
         return mather.matches();
     }
+
 }

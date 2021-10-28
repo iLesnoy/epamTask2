@@ -21,7 +21,6 @@ class ConeRepositoryImplTest {
     ConeRepositoryImpl repository = new ConeRepositoryImpl();
     Collection<Tetrahedron> tetraList = new ArrayList<>();
 
-    
 
     @Test
     void size() {
@@ -31,7 +30,7 @@ class ConeRepositoryImplTest {
 
 
     @Test
-    void get() {
+    void getById() {
         repository.addTetrahedron(tetra);
         assertEquals(repository.get(0), tetra);
     }

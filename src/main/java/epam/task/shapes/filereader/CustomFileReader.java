@@ -32,9 +32,9 @@ public class CustomFileReader {
         } catch (FileNotFoundException e) {
             logger.error(e.getMessage());
             throw new CustomException("File not found " + filepath,e);
-        } catch (IOException ex) {
-            logger.error(ex.getMessage());
-            throw new CustomException(ex.getMessage());
+        } catch (IOException e) {
+            logger.error(e.getMessage());
+            throw new CustomException(e.getMessage());
         }
         return list;
     }

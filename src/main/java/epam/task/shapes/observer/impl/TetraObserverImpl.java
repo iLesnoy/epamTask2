@@ -17,33 +17,35 @@ public class TetraObserverImpl implements TetrahedronObserver {
 
     @Override
     public void updateTetraVolume(TetraEvent event) {
-        Tetrahedron tetra = event.getSource();            
-        long id = tetra.getTetraId();                        
-        Warehouse warehouse = Warehouse.getInstance();          
-        TetraParameters parameters = null;          
         try {
-            parameters = warehouse.get(id);
+            Tetrahedron tetra = event.getSource();
+            long id = tetra.getTetraId();
+            Warehouse warehouse = Warehouse.getInstance();
+            TetraParameters parameters;
+            parameters = warehouse.getById(id);
+            TetrahedronCalculationImpl calculation = new TetrahedronCalculationImpl();
+            double volume = calculation.tetrahedronVolume(tetra);
+            parameters.setVolume(volume);
         } catch (CustomException e) {
+            logger.error(e.getMessage());
             e.printStackTrace();
         }
-        TetrahedronCalculationImpl calculation = new TetrahedronCalculationImpl();
-        double volume = calculation.tetrahedronVolume(tetra);
-        parameters.setVolume(volume);
     }
 
     @Override
-    public void updateArea(TetraEvent event){
-        Tetrahedron tetra = event.getSource();
-        long id = tetra.getTetraId();
-        Warehouse warehouse = Warehouse.getInstance();
-        TetraParameters parameters = null;
+    public void updateArea(TetraEvent event) {
         try {
-            parameters = warehouse.get(id);
+            Tetrahedron tetra = event.getSource();
+            long id = tetra.getTetraId();
+            Warehouse warehouse = Warehouse.getInstance();
+            TetraParameters parameters;
+            parameters = warehouse.getById(id);
+            TetrahedronCalculationImpl calculation = new TetrahedronCalculationImpl();
+            double volume = calculation.tetrahedronArea(tetra);
+            parameters.setArea(volume);
         } catch (CustomException e) {
+            logger.error(e.getMessage());
             e.printStackTrace();
         }
-        TetrahedronCalculationImpl calculation = new TetrahedronCalculationImpl();
-        double volume = calculation.tetrahedronArea(tetra);
-        parameters.setArea(volume);
     }
 }

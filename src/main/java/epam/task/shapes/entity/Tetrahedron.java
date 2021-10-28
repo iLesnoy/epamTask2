@@ -14,11 +14,12 @@ import java.util.Objects;
 
 public class Tetrahedron implements TetraObservable<TetraObserverImpl> {
 
-    private static Logger logger = LogManager.getLogger();
     private Point center;
     private double edge;
     private double height;
     private long tetraId;
+    public List<TetraObserverImpl> observers = new ArrayList<>();
+
 
     public Tetrahedron() {
     }
@@ -29,8 +30,6 @@ public class Tetrahedron implements TetraObservable<TetraObserverImpl> {
         this.height = height;
         this.tetraId = IdGenerator.idGenerate();
     }
-
-    private List<TetraObserverImpl> observers = new ArrayList<>();
 
 
     public long getTetraId() {
